@@ -1,7 +1,12 @@
 language: ruby
 rvm:
 - 2.2.3
-
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  app:
+    master: cryptic-badlands-48939
+  api_key:
+    secure: mla6jj3rPFhnhVzADemdqE4ouMdGPg1jow2OLXZJhYi1I8AU8D6MUNMnHImq0xhwyVDkEHVk2AH6QRPtXeSctcRnUj1QFc4iDC+06G//PLF331ktXvELFoev8ZeO3+CZohW9njBa06OhMHJMXuRgLUybteuBmWgbHpQ7kgmQx3906Ku/TKksEJsdlH2lIbD7nEGcDDGOxhGd9VKVpgwtdZFVeoYLvQrYrhYRqjVHLRU3ODKbMfBxwAKKWT670mAt0/tCbH6LX7FocuwNhmdni3qo4FLW15XYbawLCCix415LJNUSyquJO6fdMdtJPkkdQiHRsHCjZB5Xzk3YGqqnqEhxgzh6vpY7++xhe9AbC4TCKMYsgLuXjgblZ3tYW0d2JOUHinMrY2u6jqfcgvGe6trfHjGlARoXb5XQyYftnvEsgg3wc6mbQjyyEokn1ekYHRd+4OU2f++2MOqDnVi+FJtXBPokH2uFCMAhffxZaFmv/m0reFLcTWWl3XET4h+c1KwkK6iD4jdmNmVkkHvZEmz2L7M2Bm/a8Rdb3La1mw9/RJr0T16pxnO9Z3bVsDIiqNT7gSYI79i8JzfpKI+ive9PdIbngn1Ob3hChHH7yJVWRwuwD9XdZe/lExPW0Kd0U3iiPCcH14dJSCUHJjTaQwBXK5Sb5SAqAQ3fK2kedMY=
